@@ -22,3 +22,9 @@ so there are a couple differences we need to cater for.
 
 Firstly that the docker process doesn't run as pid 1, 
 and secondly that sysctls can be, and need to be configured at run-time, rather than externally.
+
+## Known issues
+
+Currently outbound traffic from fly.io does not go via the public IP of the instance.
+Also fly.io IP addresses seem to not be reliably geo-locatable to the region that you run the app in,
+which may be an issue for you if you want to use the VPN to access geo-fenced content.

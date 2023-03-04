@@ -1,0 +1,25 @@
+[build]
+  dockerfile = "./Dockerfile"
+
+[env]
+  LOG_CONFS = true
+  PEERDNS = "auto"
+  PEERS = "1"
+  PGID = 1000
+  PUID = 1000
+  SERVERPORT = 51820
+
+[mounts]
+  destination = "/config"
+  source = "config"
+
+[[services]]
+  internal_port = 51820
+  protocol = "udp"
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+    type = "connections"
+
+  [[services.ports]]
+    port = 51820
